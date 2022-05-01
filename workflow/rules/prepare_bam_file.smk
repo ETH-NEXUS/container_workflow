@@ -6,9 +6,8 @@ rule fgbio_FastqToBam:
         bam = "results/prepareBam/{sample}_unmapped.bam"
     log:
         "logs/fgbio_FastqToBam/{sample}.log",
-    #conda: "../envs/fgbio.yaml"
-    container:
-        config['containers']['fgbio']
+    singularity:
+        "https://nexus-central.leomed.ethz.ch/repository/galaxyproject-raw/fgbio:1.5.1--hdfd78af_0"
     params:
         variousParams=config["tools"]["fgbio"]["FastqToBam"]["variousParams"],
     threads: config['computingResources']['mediumRequirements']['threads']
@@ -24,9 +23,8 @@ rule picard_SamToFastq:
         R2 = "results/prepareBam/{sample}_allocated_R2.fastq"
     log:
         "logs/picard_SamToFastq/{sample}.log",
-    #conda: "../envs/picard.yaml"
-    container:
-        config['containers']['picard']
+    singularity:
+        "https://nexus-central.leomed.ethz.ch/repository/galaxyproject-raw/picard-slim:2.26.11--hdfd78af_0"
     params:
     threads: config['computingResources']['mediumRequirements']['threads']
     shell:
@@ -43,9 +41,8 @@ rule bwa_mem:
         bam = "results/prepareBam/{sample}_mapped.bam",
     log:
         "logs/bwa/{sample}.log",
-    #conda: "../envs/bwa.yaml"
-    container:
-        config['containers']['bwa']
+    singularity:
+        "https://nexus-central.leomed.ethz.ch/repository/galaxyproject-raw/bwa:0.7.17--h7132678_9"
     params:
         variousParams=config["tools"]["bwa"]["variousParams"],
         reference = config["referenceBwa"],
@@ -60,9 +57,8 @@ rule picard_SortSam_mapped:
         bamSorted = "results/prepareBam/{sample}_mapped.sorted.bam",
     log:
         "logs/picard_SortSam_mapped/{sample}.log",
-    #conda: "../envs/picard.yaml"
-    container:
-        config['containers']['picard']
+    singularity:
+        "https://nexus-central.leomed.ethz.ch/repository/galaxyproject-raw/picard-slim:2.26.11--hdfd78af_0"
     params:
     threads: config['computingResources']['mediumRequirements']['threads']
     shell:
@@ -75,9 +71,8 @@ rule picard_SortSam_unmapped:
         bamSorted = "results/prepareBam/{sample}_unmapped.sorted.bam",
     log:
         "logs/picard_SortSam_unmapped/{sample}.log",
-    #conda: "../envs/picard.yaml"
-    container:
-        config['containers']['picard']
+    singularity:
+        "https://nexus-central.leomed.ethz.ch/repository/galaxyproject-raw/picard-slim:2.26.11--hdfd78af_0"
     params:
     threads: config['computingResources']['mediumRequirements']['threads']
     shell:
@@ -92,9 +87,8 @@ rule picard_MergeBamAlignment:
         bam = "results/prepareBam/{sample}_prepared.bam",
     log:
         "logs/picard_MergeBamAlignment/{sample}.log",
-    #conda: "../envs/picard.yaml"
-    container:
-        config['containers']['picard']
+    singularity:
+        "https://nexus-central.leomed.ethz.ch/repository/galaxyproject-raw/picard-slim:2.26.11--hdfd78af_0"
     params:
         reference = config["reference"],
     threads: config['computingResources']['mediumRequirements']['threads']
@@ -110,9 +104,8 @@ rule picard_MarkDuplicates:
         metrics = "results/prepareBam/{sample}_MarkedDuplicates.Metrics.txt"
     log:
         "logs/picard_MarkDuplicates/{sample}.log",
-    #conda: "../envs/picard.yaml"
-    container:
-        config['containers']['picard']
+    singularity:
+        "https://nexus-central.leomed.ethz.ch/repository/galaxyproject-raw/picard-slim:2.26.11--hdfd78af_0"
     params:
     threads: config['computingResources']['mediumRequirements']['threads']
     shell:
@@ -125,9 +118,8 @@ rule fgbio_SortBam:
        bam = "results/callConsensus/{sample}_MarkedDuplicates.sorted.bam"
     log:
         "logs/fgbio_SortBam/{sample}.log",
-    #conda: "../envs/fgbio.yaml"
-    container:
-        config['containers']['fgbio']
+    singularity:
+        "https://nexus-central.leomed.ethz.ch/repository/galaxyproject-raw/fgbio:1.5.1--hdfd78af_0"
     params:
     threads: config['computingResources']['mediumRequirements']['threads']
     shell:

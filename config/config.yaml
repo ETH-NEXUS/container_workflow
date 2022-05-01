@@ -36,12 +36,3 @@ tools:
     lofreq:
         variousParams: "--no-default-filter -a 1 --min-cov 4 --call-indels"
 
-    snpEff:
-        variousParams: "-nodownload"
-        dataDir: "/cluster/work/nexus/utilities/databases/snpEff/v43/"
-        genomeVersion: "hg38"
-
-#containers:
-#    fgbio: "/cluster/customapps/nexus/sharedutils/tmp/fgbio_1.5.1--hdfd78af_0"
-#    picard: "/cluster/customapps/nexus/sharedutils/tmp/picard-slim_2.26.11--hdfd78af_0"
-#    bwa: "/cluster/customapps/nexus/sharedutils/tmp/bwa_0.7.17--h7132678_9"
