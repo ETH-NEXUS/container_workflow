@@ -1,2 +1,2 @@
 sample	R1	R2
-A-1	/cluster/work/nexus/internal_projects/umiPanel_pipeline/tests/linda_dev/fastqs/A-1_S1_L001_R1_001.fastq.gz	/cluster/work/nexus/internal_projects/umiPanel_pipeline/tests/linda_dev/fastqs/A-1_S1_L001_R2_001.fastq.gz
+A-1	/cluster/work/nexusintercept/tmp/dataset/fastqs/A-1_S1_L001_R1_001.fastq.gz	/cluster/work/nexusintercept/tmp/dataset/fastqs/A-1_S1_L001_R2_001.fastq.gz

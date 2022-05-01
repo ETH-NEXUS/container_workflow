@@ -1,12 +1,12 @@
 # path to the sample sheet in tsv format (columns: sample, R1, R2)
 samples: config/samples.tsv
 # path to the folder containing the input fastq files
-input_fastqs: /cluster/work/nexus/internal_projects/umiPanel_pipeline/tests/linda_dev/fastqs/ 
+input_fastqs: /cluster/work/nexusintercept/tmp/dataset/fastqs/ 
 
 # Path to project specific reference and bed files
-referenceBwa: "/cluster/work/nexus/nilsson/nilsson_dx-pipeline_2020/reference_data/reference/Homo_sapiens_assembly38.fasta"
-reference: "/cluster/work/nexus/nilsson/nilsson_dx-pipeline_2020/reference_data/reference/Homo_sapiens_assembly38.fasta"
-bed: "/cluster/work/nexus/balabanov_chip_2020/bed_files/VariantPlex_Myeloid_CHIP_14783-v1.0.extended_region.bed"
+referenceBwa: "/cluster/work/nexusintercept/tmp/dataset/reference/Homo_sapiens_assembly38.fasta"
+reference: "/cluster/work/nexusintercept/tmp/dataset/reference/Homo_sapiens_assembly38.fasta"
+bed: "/cluster/work/nexusintercept/tmp/dataset/bed_files/VariantPlex_Myeloid_CHIP_14783-v1.0.extended_region.bed"
 
 # Computing resources required for lsf
 # ToDo: Define requirements more precicly
@@ -41,7 +41,7 @@ tools:
         dataDir: "/cluster/work/nexus/utilities/databases/snpEff/v43/"
         genomeVersion: "hg38"
 
-containers:
-    fgbio: "/cluster/customapps/nexus/sharedutils/tmp/fgbio_1.5.1--hdfd78af_0"
-    picard: "/cluster/customapps/nexus/sharedutils/tmp/picard-slim_2.26.11--hdfd78af_0"
-    bwa: "/cluster/customapps/nexus/sharedutils/tmp/bwa_0.7.17--h7132678_9"
+#containers:
+#    fgbio: "/cluster/customapps/nexus/sharedutils/tmp/fgbio_1.5.1--hdfd78af_0"
+#    picard: "/cluster/customapps/nexus/sharedutils/tmp/picard-slim_2.26.11--hdfd78af_0"
+#    bwa: "/cluster/customapps/nexus/sharedutils/tmp/bwa_0.7.17--h7132678_9"
